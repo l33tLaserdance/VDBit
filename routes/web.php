@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 Route::get('/main', ['middleware' => 'auth', function () {
     return view('main.main'); // обращение сначала в папку с вью, затем к блейду (после точки)
-}]);
+}]) -> name('main');
 
 /*Route::post('/login', [
 	'uses' => 'MainController@postLogin',

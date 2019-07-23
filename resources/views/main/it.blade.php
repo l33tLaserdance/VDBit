@@ -10,7 +10,7 @@
 				<div class="card-header">
 					<div class="row">
 						<div class="col-mg-4">
-							<button type="submit" class="back">
+							<button type="submit" class="back" onclick="window.location='{{ route("main")}}'">
 								{{ __('Назад') }}
 							</button>
 						</div>

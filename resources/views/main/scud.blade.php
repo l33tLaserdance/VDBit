@@ -8,7 +8,7 @@
 		<div class="col-lg-8">
 			<div class="card"> <!-- Начало карточки -->
 				<div class="card-header">
-					<button type="submit" class="back">
+					<button type="submit" class="back" onclick="window.location='{{ route("main")}}'">
 						{{ __('Назад') }}
 					</button>
 					<!--<img class="fulllogo" src="http://sd.cloud1.vidimtech.com/images/vdfulllogo.png">-->
