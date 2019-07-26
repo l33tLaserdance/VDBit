@@ -40,10 +40,20 @@ Route::get('/main/svn', ['middleware' => 'auth', function () {
 Route::get('/main/alarm', ['middleware' => 'auth', function () {
     return view('main.alarm'); // обращение сначала в папку с вью, затем к блейду (после точки)
 }]);
+
+Route::post('/main/sendscud', 'MainController@postValidateSCUD')->name('SCUD');
+
+Route::post('/main/sendsvn', 'MainController@postValidateSVN')->name('SVN');
+
+Route::post('/main/sendalarm', 'MainController@postValidateAlarm')->name('alarm');
+
+Route::post('/main/sendit', 'MainController@postValidateIT')->name('IT');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home'); // обращение к контроллеру HomeController и его методу index, зачем нужно передавать name пока не понял
 });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

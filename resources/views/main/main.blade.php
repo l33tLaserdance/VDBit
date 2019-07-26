@@ -5,6 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+				@if (session('message'))
+				  <div class="alert alert-success">
+					<strong>Успешно!</strong> {{ session('message') }}
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+				  </div>
+				@endif
                 <div class="card-header">{{ __('Главное меню') }}</div>
 				<!--<img class="fulllogomain" src="http://sd.cloud1.vidimtech.com/images/vdfulllogo.png">-->
                 <div class="card-body">
