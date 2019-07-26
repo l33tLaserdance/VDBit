@@ -58,22 +58,22 @@
 							<label for="selectMagLock" class="control-label col-xs-2">Наличие магнитного замка на двери <span class="star">*</span></label>
 							<div class="col-xs-9">
 								<select name="MagLock" class="form-control" id="selectMagLock">
-									<option value="Да" {{ (old('MagLock') == 'Да' ? "selected":"") }}">Да</option>
-									<option value="Нет" {{ (old('MagLock') == 'Нет' ? "selected":"") }}">Нет</option>
+									<option value="Да{{ (old('MagLock') == 'Да' ? "selected":"") }}">Да</option>
+									<option value="Нет{{ (old('MagLock') == 'Нет' ? "selected":"") }}">Нет</option>
 								</select>
 							</div><br>
 							<label for="selectElec" class="control-label col-xs-2">Электричество в строении <span class="star">*</span></label>
 							<div class="col-xs-9">
 								<select name="Elec" class="form-control" id="selectElec">
-									<option value="Включено" {{ (old('Elec') == 'Включено' ? "selected":"") }}">Включено</option>
-									<option value="Отключено" {{ (old('Elec') == 'Отключено' ? "selected":"") }}">Отключено</option>
+									<option value="Включено{{ (old('Elec') == 'Включено' ? "selected":"") }}">Включено</option>
+									<option value="Отключено{{ (old('Elec') == 'Отключено' ? "selected":"") }}">Отключено</option>
 								</select>
 							</div><br>
 							<label for="selectMont" class="control-label col-xs-2">Строительно-монтажные работы в строении <span class="star">*</span></label>
 							<div class="col-xs-9">
 								<select name="Mont" class="form-control" id="selectMont">
-									<option value="Проводятся" {{ (old('Mont') == 'Проводятся' ? "selected":"") }}">Проводятся</option>
-									<option value="Не проводятся" {{ (old('Mont') == 'Не проводятся' ? "selected":"") }}">Не проводятся</option>
+									<option value="Проводятся{{ (old('Mont') == 'Проводятся' ? "selected":"") }}">Проводятся</option>
+									<option value="Не проводятся{{ (old('Mont') == 'Не проводятся' ? "selected":"") }}">Не проводятся</option>
 								</select>
 							</div><br>
 							<label for="email" class="control-label col-xs-2">Укажите Вашу почту <span class="star">*</span></label>

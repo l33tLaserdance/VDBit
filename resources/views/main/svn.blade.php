@@ -58,22 +58,22 @@
 							<label for="selectCamera" class="control-label col-xs-2">Присутствует ли камера на месте установки? <span class="star">*</span></label>
 							<div class="col-xs-9">
 								<select name="CamAvailable" class="form-control" id="selectCamera">
-									<option value="Да" {{ (old('CamAvailable') == 'Да' ? "selected":"") }}">Да</option>
-									<option value="Нет" {{ (old('CamAvailable') == 'Нет' ? "selected":"") }}">Нет</option>
+									<option value="Да{{ (old('CamAvailable') == 'Да' ? "selected":"") }}">Да</option>
+									<option value="Нет{{ (old('CamAvailable') == 'Нет' ? "selected":"") }}">Нет</option>
 								</select>
 							</div><br>
 							<label for="selectElec" class="control-label col-xs-2">Электричество в строении <span class="star">*</span></label>
 							<div class="col-xs-9">
 								<select name="Elec" name="Elec" class="form-control select" id="selectElec">
-									<option value="Включено" {{ (old('Elec') == 'Включено' ? "selected":"") }}">Включено</option>
-									<option value="Отключено" {{ (old('Elec') == 'Отключено' ? "selected":"") }}">Отключено</option>
+									<option value="Включено{{ (old('Elec') == 'Включено' ? "selected":"") }}">Включено</option>
+									<option value="Отключено{{ (old('Elec') == 'Отключено' ? "selected":"") }}">Отключено</option>
 								</select>
 							</div><br>
 							<label for="selectMont" class="control-label col-xs-2">Строительно-монтажные работы в строении <span class="star">*</span></label>
 							<div class="col-xs-9">
 								<select name="Mont" class="form-control" id="selectMont">
-									<option value="Проводятся" {{ (old('Mont') == 'Проводятся' ? "selected":"") }}">Проводятся</option>
-									<option value="Не проводятся" {{ (old('Mont') == 'Не проводятся' ? "selected":"") }}">Не проводятся</option>
+									<option value="Проводятся{{ (old('Mont') == 'Проводятся' ? "selected":"") }}">Проводятся</option>
+									<option value="Не проводятся{{ (old('Mont') == 'Не проводятся' ? "selected":"") }}">Не проводятся</option>
 								</select>
 							</div><br>
 							<label for="email" class="control-label col-xs-2">Укажите Вашу почту <span class="star">*</span></label>
