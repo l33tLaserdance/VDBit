@@ -68,12 +68,7 @@
 							<label for="inputPhone" class="control-label col-xs-2">Телефон <span class="star">*</span></label><br>
 							<label for="inputPhone" class="descr col-xs-2">Не используйте знак "*" (звёздочка)</label>
 							<div class="col-xs-9">
-								<input name="Phone" type="text" class="form-control" id="inputPhone" value="{{ old('Phone') }}" required autofocus placeholder="Например, +7(921)535-5555 или 8 935 2443244">
-								<script>
-									$(document).ready(function() {
-										$("#inputPhone").mask("8(999) 999-9999");
-									});
-								</script>
+								<input name="Phone" type="text" class="form-control" id="inputPhone" value="{{ old('Phone') }}" required autofocus placeholder="Например, +7(921)535-5555 или 8 935 2443244"> <!--placeholder="Например, +7(921)535-5555 или 8 935 2443244"-->
 								@error('inputPhone')
 										<span class="invalid-feedback" role="alert">
 											<strong>{{ $message }}</strong>

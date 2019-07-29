@@ -10,8 +10,22 @@
 	
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-	<script type="text/javascript" src="{{ asset('js/jquery.js') }}" defer></script>
+	<script src="{{ asset('jquery.js') }}" defer></script>
+	<script src="{{ asset('js/jquery.inputmask.js') }}" defer></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" defer></script>
+	<script type="module">
+								 // Подключаем плагин ...
+									import Inputmask from '/js/inputmask.js';  
+									export default {
+										mounted () {
+									// ... используем
+									var selector = document.getElementById("inputPhone");
+
+									var im = new Inputmask("99-9999999");
+									im.mask(selector);
+								   }
+								  };
+	</script>
 	
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

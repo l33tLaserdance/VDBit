@@ -12,6 +12,7 @@ class User extends Authenticatable, CanResetPasswordContract
 {
     use Notifiable;
 	use CanResetPassword;
+	use HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
