@@ -8,11 +8,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Auth\Passwords\CanResetPassword;
 
-class User extends Authenticatable, CanResetPasswordContract
+class User extends Authenticatable
 {
     use Notifiable;
 	use CanResetPassword;
-	use HasApiTokens;
+	//use HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
