@@ -67,7 +67,7 @@ class MainController extends Controller
 				"DESCRIPTION" => "Номер строения: <br>".$input['Build']."<br>Этаж: <br>".$input['Level']."<br>Расположение либо имя двери: <br>".$input['DoorPos']."<br>Наличие магнитного замка на двери: <br>".$input['MagLock'].
 			"<br>Электричество в строении:<br>".$input['Elec']."<br>Строительно-монтажные работы в строении:<br>".$input['Mont']."<br>Дополнительная информация:<br>".$input['Issue'],
 				"RESPONSIBLE_ID" => 65,
-				"CREATED_BY" => 1
+				"CREATED_BY" => 44
 				)
 		);
 		
@@ -141,7 +141,7 @@ class MainController extends Controller
 				"DESCRIPTION" => "Номер строения: <br>".$input['Build']."<br>Название регистратора: <br>".$input['Registrator']."<br>Название камеры: <br>".$input['Camera']."<br>Наличие камеры на месте установки: <br>".$input['CamAvailable'].
 			"<br>Электричество в строении:<br>".$input['Elec']."<br>Строительно-монтажные работы в строении:<br>".$input['Mont']."<br>Дополнительная информация:<br>".$input['Issue'],
 				"RESPONSIBLE_ID" => 65,
-				"CREATED_BY" => 1
+				"CREATED_BY" => 44
 				)
 		);
 		
@@ -284,9 +284,9 @@ class MainController extends Controller
 			 "ORDER" => array("DEADLINE" => "desc"),
 			 "FILTER" => array("TITLE" => "Проверка дедлайна"),
 			 "PARAMS" => array('NAV_PARAMS' => array("nPageSize" => 2, 'iNumPage' => 2)),
-		);*/
+		);
 
-		//$appRequestUrl = 'http://vidim.bitrix24.ru/rest/65/l8t3iuk4qyn4b555/task.item.list.json?'.http_build_query($appParams);
+		$appRequestUrl = 'http://vidim.bitrix24.ru/rest/65/l8t3iuk4qyn4b555/task.item.list.json?'.http_build_query($appParams);*/
 		
 		$appParams2 = array(
 			//"auth" => "l8t3iuk4qyn4b555",
@@ -294,7 +294,7 @@ class MainController extends Controller
 				"TITLE" => "Заявка на IT-поддержку от ".$input['Name']." <".$input['email']."> ",
 				"DESCRIPTION" => "Организация: <br>".$input['Org']."<br>Наименование торгового центра: <br>".$input['TRC']."<br>Контактный телефон: <br>".$input['Phone']."<br>Суть проблемы: <br>".$input['Issue'],
 				"RESPONSIBLE_ID" => 65,
-				"CREATED_BY" => 1
+				"CREATED_BY" => 44
 				)
 		);
 			

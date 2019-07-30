@@ -52,6 +52,8 @@ Route::post('/main/sendit', 'MainController@postValidateIT')->name('IT');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home'); // обращение к контроллеру HomeController и его методу index, зачем нужно передавать name пока не понял
+
+Route::get('/applist', 'HomeController@showAppList')->name('showapplist');
 });
 
 Auth::routes();

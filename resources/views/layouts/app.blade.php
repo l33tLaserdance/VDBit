@@ -90,8 +90,10 @@
 			}
 			
 			.fulllogo {
-				right: 20px;
+				left: 20px;
 				position: absolute;
+				height: 48px;
+				width: 180px;
 			}
 			
 			a.navbar-brand {
@@ -203,6 +205,10 @@
 			div.logo {
 				text-align: center;
 			}
+			
+			table {
+				text-align: center;
+			}
     </style>
 </head>
 <body>
@@ -247,6 +253,11 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+								
+									<a class="dropdown-item" href="{{ route('showapplist') }}">
+                                        {{ __('Мои заявки') }}
+                                    </a>
+									
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
