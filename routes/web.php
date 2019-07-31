@@ -49,6 +49,14 @@ Route::post('/main/sendalarm', 'MainController@postValidateAlarm')->name('alarm'
 
 Route::post('/main/sendit', 'MainController@postValidateIT')->name('IT');
 
+Route::get('/main/deletescud', 'MainController@deleteSCUD')->name('delSCUD');
+
+Route::get('/main/deletealarm', 'MainController@deleteAlarm')->name('delAlarm');
+
+Route::get('/main/deletesvn', 'MainController@deleteSVN')->name('delSVN');
+
+Route::get('/main/deleteit', 'MainController@deleteIT')->name('delIT');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home'); // обращение к контроллеру HomeController и его методу index, зачем нужно передавать name пока не понял
@@ -59,3 +67,7 @@ Route::get('/applist', 'HomeController@showAppList')->name('showapplist');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function() {
+	Route::resource('scud', 'Admin\ScudController'); //если что-то поломалось, то фиксить имена этого роута
+});

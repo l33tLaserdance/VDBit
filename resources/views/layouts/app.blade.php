@@ -11,20 +11,20 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 	<script src="{{ asset('jquery.js') }}" defer></script>
-	<script src="{{ asset('js/jquery.inputmask.js') }}" defer></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" defer></script>
+	<script type="text/javascript" src="https://unpkg.com/popper.js" defer></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap-confirmation2/dist/bootstrap-confirmation.min.js" defer></script>
 	<script type="module">
-								 // Подключаем плагин ...
-									import Inputmask from '/js/inputmask.js';  
-									export default {
-										mounted () {
-									// ... используем
-									var selector = document.getElementById("inputPhone");
-
-									var im = new Inputmask("99-9999999");
-									im.mask(selector);
-								   }
-								  };
+		$('#exampleModal').on('show.bs.modal', function (event) {
+			var button = $(event.relatedTarget) // Button that triggered the modal
+			var recipient = button.data('app') // Extract info from data-* attributes
+			var type = button.data('name')
+			// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+			// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+			var modal = $(this)
+			modal.find('.modal-title').text('Удаление заявки №' + recipient)
+			modal.find('.modal-body input').val(recipient)
+			document.getElementById('route').href="http://sd.cloud1.vidimtech.com/main/delete"+type+"?id="+recipient
+		})
 	</script>
 	
     <!-- Fonts -->
@@ -209,6 +209,23 @@
 			table {
 				text-align: center;
 			}
+			
+			a[name=read] {
+				width: 156px;
+				background-color: #459643;
+				margin-top: 10px;
+				margin-bottom: 10px;
+			}
+			
+			a[name=del] {
+				margin-top: 10px;
+				width: 156px;
+			}
+			
+			td#bit {
+				margin-top: 10px;
+				margin-bottom: 10px;
+			}
     </style>
 </head>
 <body>
@@ -247,7 +264,12 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.scud.index') }}">
+									СКУД
+                                </a>
+                            </li>
+							<li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>

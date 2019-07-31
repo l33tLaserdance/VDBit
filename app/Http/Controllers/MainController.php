@@ -71,7 +71,7 @@ class MainController extends Controller
 				)
 		);
 		
-		$queryUrl = 'http://vidim.bitrix24.ru/rest/65/l8t3iuk4qyn4b555/task.item.add.json';
+		$queryUrl = 'http://vidim.bitrix24.ru/rest/44/65gj5x3fhghcxbhc/task.item.add.json';
 		$queryData = http_build_query($appParams2);
 		
 		$curl = curl_init();
@@ -145,7 +145,7 @@ class MainController extends Controller
 				)
 		);
 		
-		$queryUrl = 'http://vidim.bitrix24.ru/rest/65/l8t3iuk4qyn4b555/task.item.add.json';
+		$queryUrl = 'http://vidim.bitrix24.ru/rest/44/65gj5x3fhghcxbhc/task.item.add.json';
 		$queryData = http_build_query($appParams2);
 		
 		$curl = curl_init();
@@ -217,7 +217,7 @@ class MainController extends Controller
 				)
 		);
 		
-		$queryUrl = 'http://vidim.bitrix24.ru/rest/65/l8t3iuk4qyn4b555/task.item.add.json';
+		$queryUrl = 'http://vidim.bitrix24.ru/rest/44/65gj5x3fhghcxbhc/task.item.add.json';
 		$queryData = http_build_query($appParams2);
 		
 		$curl = curl_init();
@@ -300,7 +300,7 @@ class MainController extends Controller
 			
 		//$appReq2 = "http://vidim.bitrix24.ru/rest/65/l8t3iuk4qyn4b555/task.item.add.json?".http_build_query($appParams2);
 		
-		$queryUrl = 'http://vidim.bitrix24.ru/rest/65/l8t3iuk4qyn4b555/task.item.add.json';
+		$queryUrl = 'http://vidim.bitrix24.ru/rest/44/65gj5x3fhghcxbhc/task.item.add.json';
 		$queryData = http_build_query($appParams2);
 		
 		/*$queryUrl = 'http://vidim.bitrix24.ru/rest/65/l8t3iuk4qyn4b555/task.item.list.json';
@@ -341,10 +341,35 @@ class MainController extends Controller
 		
 		return redirect()->route('main')->with('message', 'Ваша заявка на IT-поддержку зарегистрирована в системе. Номер заявки: '.$number.".");
 		/*https://vidim.bitrix24.ru/rest/65/l8t3iuk4qyn4b555/task.item.add.json?arNewTaskData[TITLE]=test%20task&arNewTaskData[DESCRIPTION]=test%20description&arNewTaskData[RESPONSIBLE_ID]=65&arNewTaskData[CREATED_BY]=1 - добавление
+		https://vidim.bitrix24.ru/rest/44/65gj5x3fhghcxbhc/tasks.task.delete.json?taskId=3191 - удаление
 		100% РАБОЧИЕ REST*/
 		
 		/*$final = json_decode($result);
 		echo "<br>Массив: <br>";
 		print_r($final->result[0]->TITLE); // декод элемента из листа */
+	}
+	
+	public function deleteSCUD()
+	{
+		$id = $_GET['id'];
+		echo $id;
+	}
+	
+	public function deleteSVN()
+	{
+		$id = $_GET['id'];
+		echo $id;
+	}
+	
+	public function deleteAlarm()
+	{
+		$id = $_GET['id'];
+		echo $id;
+	}
+	
+	public function deleteIT()
+	{
+		$id = $_GET['id'];
+		echo $id;
 	}
 }
