@@ -33,7 +33,7 @@
 						</div>
 					@endif
 					<form id="appform" method="get">
-						<h1>Ваши заявки</h1><br>
+						<h1>Заявки пользователя {{ Auth::user()->name }}</h1><br>
 						<div class="form-group">
 							<div class="col-xs-12">
 								<label for="scud" class="control-label col-xs-2">Заявки на обслуживание СКУД</label><br>
@@ -61,7 +61,7 @@
 										<td> 
 										<a class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" data-app="{{ $obj->bitrix }}" data-name="scud" name="del">Отменить заявку</a>
 										<br>
-										<a class="btn btn-success" id="{{ $obj->bitrix }}" name="read">Просмотреть заявку</a>
+										<a class="btn btn-success" id="{{ $obj->bitrix }}" name="read" href="http://sd.cloud1.vidimtech.com/appscud?id={{ $obj->bitrix }}">Просмотреть заявку</a>
 										</td>
 										</tr>
 									@endforeach
@@ -94,7 +94,7 @@
 										<td>
 										<a class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" data-app="{{ $obj->bitrix }}" data-name="svn" name="del">Отменить заявку</a>
 										<br>
-										<a class="btn btn-success" id="{{ $obj->bitrix }}" name="read">Просмотреть заявку</a>
+										<a class="btn btn-success" id="{{ $obj->bitrix }}" name="read" href="http://sd.cloud1.vidimtech.com/appsvn?id={{ $obj->bitrix }}">Просмотреть заявку</a>
 										</td>
 										</tr>
 									@endforeach
@@ -128,7 +128,7 @@
 										<td>
 										<a class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" data-app="{{ $obj->bitrix }}" data-name="alarm" name="del">Отменить заявку</a>
 										<br>
-										<a class="btn btn-success" id="{{ $obj->bitrix }}" name="read">Просмотреть заявку</a>
+										<a class="btn btn-success" id="{{ $obj->bitrix }}" name="read" href="http://sd.cloud1.vidimtech.com/appalarm?id={{ $obj->bitrix }}">Просмотреть заявку</a>
 										</td>
 										</tr>
 									@endforeach
@@ -163,7 +163,7 @@
 										<td> 
 										<a class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" data-app="{{ $obj->bitrix }}" data-name="it" name="del">Отменить заявку</a>
 										<br>
-										<a class="btn btn-success" id="{{ $obj->bitrix }}" name="read">Просмотреть заявку</a>
+										<a class="btn btn-success" id="{{ $obj->bitrix }}" name="read" href="http://sd.cloud1.vidimtech.com/appit?id={{ $obj->bitrix }}">Просмотреть заявку</a>
 										</td>
 										</tr>
 									@endforeach

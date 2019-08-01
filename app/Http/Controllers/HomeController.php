@@ -85,4 +85,56 @@ class HomeController extends Controller
 			'alarm' => $alarm
 		));
 	}
+	
+	public function showAppSCUD()
+	{
+		$id = $_GET['id'];
+		
+		$scud = DB::table('scud')->select('numBuild', 'numLevel', 'numDoor', 'is_mag', 'is_electrified', 'is_worked', 'email', 'name', 'info', 'bitrix', 'closed')
+			->where('bitrix', '=', $id)
+			->get();
+		
+		return view('auth/appscud', array(
+			'scud' => $scud, 
+		));
+	}
+	
+	public function showAppIT()
+	{
+		$id = $_GET['id'];
+		
+		$it = DB::table('IT')->select('orgname', 'trcname', 'name', 'email', 'phone', 'info', 'bitrix', 'closed')
+			->where('bitrix', '=', $id)
+			->get();
+		
+		return view('auth/appit', array(
+			'it' => $it, 
+		));
+	}
+	
+	public function showAppSVN()
+	{
+		$id = $_GET['id'];
+		
+		$svn = DB::table('svn')->select('numBuild', 'numRegister', 'numCam', 'is_available', 'is_electrified', 'is_worked', 'email', 'name', 'info', 'bitrix', 'closed')
+			->where('bitrix', '=', $id)
+			->get();
+		
+		return view('auth/appsvn', array(
+			'svn' => $svn, 
+		));
+	}
+	
+	public function showAppAlarm()
+	{
+		$id = $_GET['id'];
+		
+		$alarm = DB::table('alarm')->select('numBuild', 'numLevel', 'numBut', 'is_door_available', 'is_electrified', 'is_worked', 'email', 'name', 'info', 'bitrix', 'closed')
+			->where('bitrix', '=', $id)
+			->get();
+		
+		return view('auth/appalarm', array(
+			'alarm' => $alarm, 
+		));
+	}
 }

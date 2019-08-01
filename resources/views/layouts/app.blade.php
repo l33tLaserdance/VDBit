@@ -227,6 +227,14 @@
 				margin-top: 10px;
 				margin-bottom: 10px;
 			}
+			
+			.btn-success {
+				background-color: #459643;
+			}
+			
+			.status {
+				text-align: center;
+			}
     </style>
 </head>
 <body>

@@ -62,6 +62,14 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home'); // обращение к контроллеру HomeController и его методу index, зачем нужно передавать name пока не понял
 
 Route::get('/applist', 'HomeController@showAppList')->name('showapplist');
+
+Route::get('/appscud', 'HomeController@showAppSCUD')->name('appscud');
+
+Route::get('/appit', 'HomeController@showAppIT')->name('appit');
+
+Route::get('/appsvn', 'HomeController@showAppSVN')->name('appsvn');
+
+Route::get('/appalarm', 'HomeController@showAppAlarm')->name('appalarm');
 });
 
 Auth::routes();
