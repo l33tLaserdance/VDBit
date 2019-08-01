@@ -352,24 +352,180 @@ class MainController extends Controller
 	public function deleteSCUD()
 	{
 		$id = $_GET['id'];
-		echo $id;
+		
+		$username = Auth::user()->name;
+		
+		$appParams1 = array(
+			"taskId" => $id,
+			"arFields" => array(
+				"POST_MESSAGE" => "Заявка закрыта пользователем приложения VIDIM Bitrix под именем ".$username,
+				)
+		);
+		
+		$appParams2 = array(
+			"taskId" => $id,
+		);
+		
+		$queryUrl = 'http://vidim.bitrix24.ru/rest/44/65gj5x3fhghcxbhc/task.commentitem.add.json?';
+		$queryData = http_build_query($appParams1);
+		
+		$queryUrl2 = 'http://vidim.bitrix24.ru/rest/44/65gj5x3fhghcxbhc/tasks.task.complete.json';
+		$queryData2 = http_build_query($appParams2);
+		
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+			CURLOPT_SSL_VERIFYPEER => 0,
+			CURLOPT_POST => 1,
+			CURLOPT_HEADER => 0,
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_URL => $queryUrl,
+			CURLOPT_POSTFIELDS => $queryData,
+		));
+		$result = curl_exec($curl);
+		curl_setopt_array($curl, array(
+			CURLOPT_URL => $queryUrl2,
+			CURLOPT_POSTFIELDS => $queryData2,
+		));
+		$result2 = curl_exec($curl);
+		curl_close($curl);
+		
+		DB::table('scud')->where('bitrix', '=', $id)->update(['closed' => 1]);
+		
+		return redirect()->route('showapplist')->with('message', 'Заявка отменена. Номер отменённой заявки: '.$id.".");
 	}
 	
 	public function deleteSVN()
 	{
 		$id = $_GET['id'];
-		echo $id;
+		
+		$username = Auth::user()->name;
+		
+		$appParams1 = array(
+			"taskId" => $id,
+			"arFields" => array(
+				"POST_MESSAGE" => "Заявка закрыта пользователем приложения VIDIM Bitrix под именем ".$username,
+				)
+		);
+		
+		$appParams2 = array(
+			"taskId" => $id,
+		);
+		
+		$queryUrl = 'http://vidim.bitrix24.ru/rest/44/65gj5x3fhghcxbhc/task.commentitem.add.json?';
+		$queryData = http_build_query($appParams1);
+		
+		$queryUrl2 = 'http://vidim.bitrix24.ru/rest/44/65gj5x3fhghcxbhc/tasks.task.complete.json';
+		$queryData2 = http_build_query($appParams2);
+		
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+			CURLOPT_SSL_VERIFYPEER => 0,
+			CURLOPT_POST => 1,
+			CURLOPT_HEADER => 0,
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_URL => $queryUrl,
+			CURLOPT_POSTFIELDS => $queryData,
+		));
+		$result = curl_exec($curl);
+		curl_setopt_array($curl, array(
+			CURLOPT_URL => $queryUrl2,
+			CURLOPT_POSTFIELDS => $queryData2,
+		));
+		$result2 = curl_exec($curl);
+		curl_close($curl);
+		
+		DB::table('svn')->where('bitrix', '=', $id)->update(['closed' => 1]);
+		
+		return redirect()->route('showapplist')->with('message', 'Заявка отменена. Номер отменённой заявки: '.$id.".");
 	}
 	
 	public function deleteAlarm()
 	{
 		$id = $_GET['id'];
-		echo $id;
+		
+		$username = Auth::user()->name;
+		
+		$appParams1 = array(
+			"taskId" => $id,
+			"arFields" => array(
+				"POST_MESSAGE" => "Заявка закрыта пользователем приложения VIDIM Bitrix под именем ".$username,
+				)
+		);
+		
+		$appParams2 = array(
+			"taskId" => $id,
+		);
+		
+		$queryUrl = 'http://vidim.bitrix24.ru/rest/44/65gj5x3fhghcxbhc/task.commentitem.add.json?';
+		$queryData = http_build_query($appParams1);
+		
+		$queryUrl2 = 'http://vidim.bitrix24.ru/rest/44/65gj5x3fhghcxbhc/tasks.task.complete.json';
+		$queryData2 = http_build_query($appParams2);
+		
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+			CURLOPT_SSL_VERIFYPEER => 0,
+			CURLOPT_POST => 1,
+			CURLOPT_HEADER => 0,
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_URL => $queryUrl,
+			CURLOPT_POSTFIELDS => $queryData,
+		));
+		$result = curl_exec($curl);
+		curl_setopt_array($curl, array(
+			CURLOPT_URL => $queryUrl2,
+			CURLOPT_POSTFIELDS => $queryData2,
+		));
+		$result2 = curl_exec($curl);
+		curl_close($curl);
+		
+		DB::table('alarm')->where('bitrix', '=', $id)->update(['closed' => 1]);
+		
+		return redirect()->route('showapplist')->with('message', 'Заявка отменена. Номер отменённой заявки: '.$id.".");
 	}
 	
 	public function deleteIT()
 	{
 		$id = $_GET['id'];
-		echo $id;
+		
+		$username = Auth::user()->name;
+		
+		$appParams1 = array(
+			"taskId" => $id,
+			"arFields" => array(
+				"POST_MESSAGE" => "Заявка закрыта пользователем приложения VIDIM Bitrix под именем ".$username,
+				)
+		);
+		
+		$appParams2 = array(
+			"taskId" => $id,
+		);
+		
+		$queryUrl = 'http://vidim.bitrix24.ru/rest/44/65gj5x3fhghcxbhc/task.commentitem.add.json?';
+		$queryData = http_build_query($appParams1);
+		
+		$queryUrl2 = 'http://vidim.bitrix24.ru/rest/44/65gj5x3fhghcxbhc/tasks.task.complete.json';
+		$queryData2 = http_build_query($appParams2);
+		
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+			CURLOPT_SSL_VERIFYPEER => 0,
+			CURLOPT_POST => 1,
+			CURLOPT_HEADER => 0,
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_URL => $queryUrl,
+			CURLOPT_POSTFIELDS => $queryData,
+		));
+		$result = curl_exec($curl);
+		curl_setopt_array($curl, array(
+			CURLOPT_URL => $queryUrl2,
+			CURLOPT_POSTFIELDS => $queryData2,
+		));
+		$result2 = curl_exec($curl);
+		curl_close($curl);
+		
+		DB::table('IT')->where('bitrix', '=', $id)->update(['closed' => 1]);
+		
+		return redirect()->route('showapplist')->with('message', 'Заявка отменена. Номер отменённой заявки: '.$id.".");
 	}
 }

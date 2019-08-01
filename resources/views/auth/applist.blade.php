@@ -9,6 +9,12 @@
 		</div>
 		<div class="col-lg-10">
 			<div class="card"> <!-- Начало карточки -->
+			@if (session('message'))
+				  <div class="alert alert-success">
+					<strong>Успешно!</strong> {{ session('message') }}
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+				  </div>
+				@endif
 				<div class="card-header">
 					<div class="row">
 						<div class="col-mg-8">
@@ -182,7 +188,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Подтвердите удаление</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Подтвердите отмену</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
