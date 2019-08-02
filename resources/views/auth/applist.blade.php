@@ -9,12 +9,17 @@
 		</div>
 		<div class="col-lg-10">
 			<div class="card"> <!-- Начало карточки -->
-			@if (session('message'))
-				  <div class="alert alert-success">
-					<strong>Успешно!</strong> {{ session('message') }}
+			@if (session('message') == 'Запрашиваемой заявки не существует.')
+				  <div class="alert alert-danger">
+					<strong>Ошибка.</strong> {{ session('message') }}
 					<button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
 				  </div>
-				@endif
+			@elseif (session('message'))
+				<div class="alert alert-success">
+					<strong>Успешно!</strong> {{ session('message') }}
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+				</div>
+			@endif
 				<div class="card-header">
 					<div class="row">
 						<div class="col-mg-8">

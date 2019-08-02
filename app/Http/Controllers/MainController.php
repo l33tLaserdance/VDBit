@@ -232,9 +232,6 @@ class MainController extends Controller
 		$queryUrl = 'http://vidim.bitrix24.ru/rest/44/65gj5x3fhghcxbhc/task.item.add.json';
 		$queryData = http_build_query($appParams2);
 		
-		/*$get = $queryUrl.$queryData;
-		echo $get;*/
-		
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
 			CURLOPT_SSL_VERIFYPEER => 0,

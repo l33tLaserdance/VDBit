@@ -87,6 +87,25 @@
 								<textarea name="Issue" cols="50" rows="10" class="form-control" id="inputAdditionalInfo" disabled>{{ $scud[0]->info }}</textarea>
 							</div>
 						</div>
+						<div class="col-xs-9">
+							<label class="control-label col-xs-2">Комментарии:</label>
+						</div>
+						@if (isset($final))
+						@foreach ($final->result as $fin)
+							<div class="col-xs-9"> 
+								<div class="row">
+									<div class="col-lg-6 alert alert-primary" style="text-align: left; margin-bottom: 0">{{ $fin->AUTHOR_NAME }}</div>
+									<div class="col-lg-6 alert alert-primary" style="text-align: right; margin-bottom: 0">{{ $fin->POST_DATE }}</div>
+								</div>
+								<textarea name="Comment" class="form-control" style="margin-top: 0; background-color: white" disabled>{{ $fin->POST_MESSAGE }}</textarea>
+							</div>
+						@endforeach
+						@endif
+						@if (!isset($final))
+							<div class="col-xs-9">
+								<label class="descr col-xs-2">Комментариев пока нет.</label>
+							</div>
+						@endif
 					</div>
 				<div class="card-footer">
 					<button type="submit" class="sender">
