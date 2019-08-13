@@ -66,10 +66,10 @@ return [
     */
 
     'providers' => [
-        /*'users' => [
-            'driver' => 'eloquent',
+        'users' => [
+            'driver' => 'ldap',
             'model' => App\User::class,
-        ],*/
+        ],
 
         'users' => [
             'driver' => 'database',

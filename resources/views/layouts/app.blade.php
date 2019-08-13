@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'VD Bitrix') }}</title>
+    <title>Service Desk - @yield('title')</title>
 	
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -40,14 +40,22 @@
 				src: url('/fonts/MarsfontRegular.ttf') format('truetype');
 			}
 			
+			body {
+				display: flex;
+				flex-direction: column;
+			}
+			body, html {
+				height:100%;
+			}
+			
 			#app {
 				box-sizing: border-box;
-				min-height: 100vh;
+				flex: 1 0 auto;
 			}
 			
 			.footer {
-				background-color: #241919;
-				margin-top: 170px;
+				background-color: #171717;
+				flex: 0 0 auto;
 				color: #f7f7f7;
 				padding-top: 54px;
 				padding-right: 0;
@@ -57,13 +65,13 @@
 				bottom: 0;
 				left: 0;
 				right: 0;
+				margin-top: 60px;
 			}
 			
 			.card-header {
 				font-size: 22px;
-				background-color: #241919;
+				background-color: #171717;
 				color: #f7f7f7;
-				height: 90px;
 			}
 			
             .vdbtn {
@@ -93,8 +101,8 @@
 			.fulllogo {
 				left: 20px;
 				position: absolute;
-				height: 48px;
-				width: 180px;
+				height: 69px;
+				width: 209px;
 			}
 			
 			a.navbar-brand {
@@ -129,6 +137,7 @@
 				font-size: 16px;
 				margin: 0;
 				padding: 12px;
+				cursor: pointer;
 			}
 			
 			.sender:hover {
@@ -152,6 +161,7 @@
 				color: #fff !important;
 				transition: all 300ms ease 0ms;
 				margin-left: 10px;
+				cursor: pointer;
 			}
 			
 			.back:hover {
@@ -180,7 +190,7 @@
 			}
 			
 			.main {
-				background-color: black;
+				background-color: #171717;
 			}
 			
 			.arrow::after {
@@ -235,6 +245,15 @@
 			.status {
 				text-align: center;
 			}
+			
+			li > a {
+				margin-left: 2px;
+				margin-right: 2px;
+			}
+			
+			.bg-dark {
+				background-color: #171717 !important;
+			}
     </style>
 </head>
 <body>
@@ -273,11 +292,13 @@
                                 </li>
                             @endif
                         @else
+                            @if (Auth::user()->name == 'NewReg')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.scud.index') }}">
-									СКУД
+                                <a class="nav-link" href="{{ route('admin') }}">
+									Администрирование
                                 </a>
                             </li>
+							@endif
 							<li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -321,7 +342,7 @@
 			<label>info@vidim.pro</label>
 		</div>
 		<div class="col-lg-2 logo">
-			<img class="fulllogo" src="http://sd.cloud1.vidimtech.com/images/vdfulllogo.png"><br>
+			<img class="fulllogo" src="http://sd.cloud1.vidimtech.com/images/vidimpro_white_h68.png"><br>
 			<label style="padding-top: 70px">Политика конфиденциальности</label>
 			<label style="padding-top: 20px; padding-bottom: 50px">© ООО «ВДТех», 2019</label>
 		</div>

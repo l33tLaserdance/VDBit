@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title', 'Просмотр заявки')
 @section('content')
 <div class="container">
 <form method="GET" action="{{ route('showapplist') }}">

@@ -25,6 +25,14 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
+		
+		Gate::define('view-admin', function ($user) {
+			if ($user->email == 'examplemail@yandex.ru') {
+				return true;
+			}
+			return false;
+		});
+		
 		Passport::routes(); 
         //
     }

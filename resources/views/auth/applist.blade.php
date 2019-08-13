@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'Мои заявки')
 @section('content')
 <div class="container">
-<form method="POST" action="{{ route('showapplist') }}">
 	@csrf
 	<div class="row justify-content-center">
 		<div class="col-lg-1">
@@ -20,13 +20,19 @@
 					<button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
 				</div>
 			@endif
-				<div class="card-header">
+				<div class="card-header" style="height: 120px;">
 					<div class="row">
-						<div class="col-mg-8">
-							<img class="fulllogo" src="http://sd.cloud1.vidimtech.com/images/vdfulllogo.png">
+						<div class="col-lg-4">
+							<button type="submit" class="back" onclick="window.location='{{ route('main')}}'">
+								{{ __('Назад') }}
+							</button>
+						</div>
+						<div class="col-lg-8" style="text-align: right">
+							Заявки
 						</div>
 					</div>
 				</div>
+				<form method="POST" action="{{ route('showapplist') }}">
 					<div class="card-body">
 					@if ($errors->any())
 						<div class="alert alert-danger">
@@ -44,7 +50,7 @@
 								<label for="scud" class="control-label col-xs-2">Заявки на обслуживание СКУД</label><br>
 							</div>
 							@if (empty($scud[0]))
-								<p>У вас нет заявок на обслуживание СКУД.</p>
+								<p>Заявки отсутствуют.</p>
 							@elseif (!empty($svn))
 							<div class="col-xs-12">
 								<table class="table table-bordered table-dark" id="scud">
@@ -71,13 +77,14 @@
 										</tr>
 									@endforeach
 								</table>
+							</div>
 							@endif
 							
 								<div class="col-xs-12">
 								<label for="scud" class="control-label col-xs-2">Заявки на обслуживание СВН</label><br>
 							</div>
 							@if (empty($svn[0]))
-								<p>У вас нет заявок на обслуживание СВН.</p>
+								<p>Заявки отсутствуют.</p>
 							@elseif (!empty($svn))
 							<div class="col-xs-12">
 								<table class="table table-bordered table-dark" id="svn">
@@ -111,7 +118,7 @@
 								<label for="alarm" class="control-label col-xs-2">Заявки на обслуживание охранной сигнализации</label><br>
 							</div>
 							@if (empty($alarm[0]))
-								<p>У вас нет заявок на обслуживание охранной сигнализации.</p>
+								<p>Заявки отсутствуют.</p>
 							@elseif (!empty($alarm))
 							<div class="col-xs-12">
 								<table class="table table-bordered table-dark" id="alarm">
@@ -145,7 +152,7 @@
 								<label for="it" class="control-label col-xs-2">Заявки на IT-поддержку</label><br>
 							</div>
 							@if (empty($it[0]))
-								<p>У вас нет заявок на IT-поддержку.</p>
+								<p>Заявки отсутствуют.</p>
 							@elseif (!empty($it))
 							<div class="col-xs-12">
 								<table class="table table-bordered table-dark" id="it">

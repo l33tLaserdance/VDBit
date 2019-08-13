@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'IT-поддержка')
 @section('content')
 <div class="container">
-<form method="POST" action="{{ route('IT') }}">
-	@csrf
 	<div class="row justify-content-center">
 		<div class="col-lg-2">
 		</div>
@@ -21,6 +20,8 @@
 						</div>
 					</div>
 				</div>
+				<form method="POST" action="{{ route('IT') }}">
+				@csrf
 					<div class="card-body">
 					@if ($errors->any())
 						<div class="alert alert-danger">
@@ -91,11 +92,11 @@
 						{{ __('Отправить') }}
 					</button>
 				</div>
+				</form>
 			</div>
 		</div> <!-- Конец карточки -->
 		<div class="col-lg-2">
 		</div>
 	</div>
-</form>
 </div>
 @endsection

@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'СВН')
 @section('content')
 <div class="container">
-<form method="POST" action="{{ route('SVN') }}">
-	@csrf
 	<div class="row justify-content-center">
 		<div class="col-lg-2">
 		</div>
@@ -15,6 +14,8 @@
 					</button>
 					<!--<img class="fulllogo" src="http://sd.cloud1.vidimtech.com/images/vdfulllogo.png">-->
 				</div>
+				<form method="POST" action="{{ route('SVN') }}">
+				@csrf
 					<div class="card-body">
 					@if ($errors->any())
 						<div class="alert alert-danger">
@@ -106,11 +107,11 @@
 						{{ __('Отправить') }}
 					</button>
 				</div>
+				</form>
 			</div>
 		</div> <!-- Конец карточки -->
 		<div class="col-lg-2">
 		</div>
 	</div>
-</form>
 </div>
 @endsection

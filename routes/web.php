@@ -13,7 +13,7 @@
 
 Route::group(['middleware' => ['web']], function () {
 Route::get('/', function () {
-    return view('welcome'); //обращение к блейду, который находится в корне папки views
+    return view('auth.login'); //обращение к блейду, который находится в корне папки views
 });
 
 Route::get('/main', ['middleware' => 'auth', function () {
@@ -38,7 +38,7 @@ Route::get('/main/svn', ['middleware' => 'auth', function () {
 }]);
 
 Route::get('/main/alarm', ['middleware' => 'auth', function () {
-    return view('main.alarm'); // обращение сначала в папку с вью, затем к блейду (после точки)
+    return view('main.alarm'); 
 }]);
 
 Route::post('/main/sendscud', 'MainController@postValidateSCUD')->name('SCUD');
@@ -72,10 +72,28 @@ Route::get('/appsvn', 'HomeController@showAppSVN')->name('appsvn');
 Route::get('/appalarm', 'HomeController@showAppAlarm')->name('appalarm');
 });
 
+Route::group(['middleware' => ['auth']], function () {
+	
+	Route::get('/admin', ['middleware' => 'auth', function () {
+		if (Gate::allows('view-admin', Auth::user())) {
+			return view('admin.main');
+		} else {
+			abort(404);
+		}
+	}]) -> name('admin');
+
+	Route::get('/admin/users', 'AdminController@showUsers') -> name('users');
+
+	Route::get('/admin/users/create', 'AdminController@createUser') -> name('createuser');
+
+	Route::get('/admin/updateuser', 'AdminController@updateUser')->name('updateuser');
+
+	Route::get('/admin/deleteuser', 'AdminController@deleteUser')->name('deleteuser');
+
+	Route::post('/admin/senduser', 'AdminController@postValidateUser')->name('USR');
+
+	Route::post('/admin/upduser', 'AdminController@postUpdateUser')->name('UPDUSR');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function() {
-	Route::resource('scud', 'Admin\ScudController'); //если что-то поломалось, то фиксить имена этого роута
-});

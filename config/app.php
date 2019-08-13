@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'VD Bitrix'),
+    'name' => env('APP_NAME', 'Service Desk'),
 
     /*
     |--------------------------------------------------------------------------
@@ -174,6 +174,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+		// Only required for Laravel 5.0-5.4. Automatically registered in Laravel 5.5+.
+		Adldap\Laravel\AdldapServiceProvider::class,
+		Adldap\Laravel\AdldapAuthServiceProvider::class,
 
     ],
 
@@ -225,6 +228,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+		'Adldap' => Adldap\Laravel\Facades\Adldap::class,
 
     ],
 
