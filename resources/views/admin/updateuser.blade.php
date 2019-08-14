@@ -41,7 +41,7 @@
 						<div class="form-group">
 							<label for="inputName" class="control-label col-xs-2">Имя пользователя</label>
 							<div class="col-xs-9">
-								<input name="Name" type="text" class="form-control @error('Name') is-invalid @enderror" id="inputName" value="{{ old('Name') }}" placeholder="{{ $usr[0]->name }}">
+								<input name="Name" type="text" class="form-control @error('Name') is-invalid @enderror" id="inputName" placeholder="{{ $usr[0]->name }}">
 								@error('Name')
 										<span class="invalid-feedback" role="alert">
 											<strong>{{ $message }}</strong>
@@ -50,7 +50,7 @@
 							</div><br>
 							<label for="email" class="control-label col-xs-2">E-mail</label>
 							<div class="col-xs-9">
-								<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" autocomplete="email" value="{{ old('email') }}" autofocus placeholder="{{ $usr[0]->email }}">
+								<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" autocomplete="email" autofocus placeholder="{{ $usr[0]->email }}">
 								@error('email')
 										<span class="invalid-feedback" role="alert">
 											<strong>{{ $message }}</strong>

@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -30,11 +31,18 @@ class AdminController extends Controller
 	
     public function index()
     {
+		if (Auth::user()->name != 'NewReg') {
+			abort(404);
+		}
         return view('admin');
     }
 	
 	public function showUsers()
 	{
+		if (Auth::user()->name != 'NewReg') {
+			abort(404);
+		}
+		
 		$users = DB::table('users')->select('id', 'name', 'email')
 			->orderBy('id', 'asc')
 			->get();
@@ -46,6 +54,9 @@ class AdminController extends Controller
 	
 	public function createUser()
 	{		
+		if (Auth::user()->name != 'NewReg') {
+			abort(404);
+		}
 		return view('admin/users/create');
 	}
 	
@@ -91,6 +102,10 @@ class AdminController extends Controller
 	
 	public function updateUser(Request $request)
 	{	
+		if (Auth::user()->name != 'NewReg') {
+			abort(404);
+		}
+		
 		$id = $_GET['id'];
 		
 		if ($id == 4) {
@@ -181,6 +196,10 @@ class AdminController extends Controller
 	
 	public function deleteUser(Request $request)
 	{
+		if (Auth::user()->name != 'NewReg') {
+			abort(404);
+		}
+		
 		$id = $_GET['id'];
 		
 		$bitrixsvn = DB::table('svn')->select('bitrix')
